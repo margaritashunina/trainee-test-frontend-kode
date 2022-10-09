@@ -1,0 +1,18 @@
+.person--link {
+    text-decoration: none;
+    color: black;
+}
+
+.person {
+    width: 400px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+}
+
+.person > img {
+    border-radius: 50%;
+}
