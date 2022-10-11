@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import axios from 'axios'
 
 import List from './components/List'
 import Profile from './components/Profile'
 
-import data from "./people.json"
 export const PeopleContext = React.createContext()
 
 export default function App() {
@@ -14,12 +14,26 @@ export default function App() {
     })
 
     useEffect(() => {
-        setTimeout(() => {
-            setPeople({
-                status: "ok",
-                data: data
+        const options = {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+          };
+          axios.get(
+            "https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464/users?__example=all",
+            options
+          )
+            .then((response) => {
+                setPeople({
+                    status: "ok",
+                    data: response.data.items
+                })
             })
-        }, 1000)
+            .catch((err) => {
+                setPeople({
+                    status: "error",
+                    data: err
+                })
+            });
     }, [])
 
     return (
