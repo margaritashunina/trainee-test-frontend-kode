@@ -3,6 +3,7 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { PeopleContext } from "../App"
 import ErrorMessage from "./ErrorMessage"
+import ProfileInfo from "./ProfileInfo"
 
 export default function Profile() {
     const { id } = useParams()
@@ -10,27 +11,29 @@ export default function Profile() {
 
     let displayed
     if (people.status === "loading") {
-        displayed = <h2>Loading...</h2>
+        displayed = <h2>Загрузка</h2>
+        //компонент Loading
     }
-    else if (people.status === "ok") {
-        displayed = people.data.find(elem => elem.id === id)
-        displayed = (displayed ? 
-            <p>{displayed.firstName}</p> : 
-            <ErrorMessage text="Такого человека нет..."/>
-        )
+    else if (people.status === "error") {
+        displayed = <ErrorMessage text="Что-то пошло не так..."/>
     }
     else {
-        displayed = <ErrorMessage text="Что-то пошло не так..."/>
+        let info = people.data.find(person => person.id === id)
+        if (! info) {
+            displayed = <ErrorMessage text="Чела нет..."/>
+        }
+        else {
+            //другой компонент?
+            displayed = <ProfileInfo {...info}/>
+        }
     }
 
     return (
-        <div>
+        <main>
             <Link to="/">
-                Go back to main...
+                {"<"}
             </Link>
-            <div>
-                {displayed}
-            </div>
-        </div>
+            {displayed}
+        </main>
     )
 }
