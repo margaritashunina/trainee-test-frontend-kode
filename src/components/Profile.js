@@ -1,9 +1,14 @@
 import { useParams } from "react-router-dom"
 import { useContext } from "react"
 import { Link } from "react-router-dom"
+
 import { PeopleContext } from "../App"
+
 import ErrorMessage from "./ErrorMessage"
 import ProfileInfo from "./ProfileInfo"
+
+import './Profile.css'
+import arrowIcon from "../img/arrow.svg"
 
 export default function Profile() {
     const { id } = useParams()
@@ -23,16 +28,17 @@ export default function Profile() {
             displayed = <ErrorMessage text="Чела нет..."/>
         }
         else {
-            //другой компонент?
             displayed = <ProfileInfo {...info}/>
         }
     }
 
     return (
         <main>
-            <Link to="/">
-                {"<"}
-            </Link>
+            <div className="link-back">
+                <Link to="/">
+                    <img className="link-back--img" src={arrowIcon} alt="Arrow back"/>
+                </Link>
+            </div>
             {displayed}
         </main>
     )

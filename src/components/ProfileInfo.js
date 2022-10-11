@@ -1,5 +1,6 @@
 import starIcon from '../img/star.svg'
 import phoneIcon from '../img/phone.svg'
+import './ProfileInfo.css'
 
 export default function ProfileInfo(props) {
     const today = new Date()
@@ -13,25 +14,26 @@ export default function ProfileInfo(props) {
 
     return (
         <div>
-            <div>
+            <div className="profile--header">
                 <img src={props.avatarUrl} alt="An employee"/>
-                <div>
+                <div className="profile--header--name">
                     <p>{props.firstName} {props.lastName}</p>
-                    <p>{props.userTag}</p>
+                    <p className="profile--header--tag">{props.userTag}</p>
                 </div>
-                <p>{props.position}</p>
+                <p className="profile--header--pos">{props.position}</p>
             </div>
-            <div>
-                <div>
-                    <img src={starIcon} alt="Star icon"/>
-                    <p>{birthday.toLocaleDateString('ru-RU', dateOptions)}</p>
-                    <p>{age}</p>
-                </div>
-                <div>
-                    <img src={phoneIcon} alt="Phone icon"/>
-                    <a href={`tel:${props.phone}`}>{props.phone}</a>
-                </div>
-                
+            <div className="profile--info-field">
+                <img src={starIcon} alt="Star icon"/>
+                <p>{birthday.toLocaleDateString('ru-RU', dateOptions)}</p>
+                <p className="profile--age"> 
+                    {age + " "} 
+                    {age % 10 === 1 ? "год" :
+                     age % 10 < 5 && age % 10  ? "года" : "лет"}
+                </p>
+            </div>
+            <div className="profile--info-field">
+                <img src={phoneIcon} alt="Phone icon"/>
+                <a className="profile--phone" href={`tel:${props.phone}`}>{props.phone}</a>
             </div>
         </div>
     )
