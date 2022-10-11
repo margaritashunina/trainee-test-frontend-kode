@@ -1,0 +1,23 @@
+.dep-tabs {
+    display: flex;
+    list-style: none;
+
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 133%;
+    text-align: center;
+    color: #97979B;
+}
+
+.dep-tabs > li {
+    padding: 0.5rem;
+}
+
+.selected-tab {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 133%;
+    text-align: center;
+    color: #050510;
+    border-bottom: 2px solid #6534FF;
+}

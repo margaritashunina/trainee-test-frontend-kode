@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom"
 import { useContext } from "react"
+import { Link } from "react-router-dom"
 import { PeopleContext } from "../App"
+import ErrorMessage from "./ErrorMessage"
 
 export default function Profile() {
     const { id } = useParams()
@@ -12,15 +14,23 @@ export default function Profile() {
     }
     else if (people.status === "ok") {
         displayed = people.data.find(elem => elem.id === id)
-        displayed = (displayed ? <p>{displayed.firstName}</p> : <h2>This person doesn't exist</h2>)
+        displayed = (displayed ? 
+            <p>{displayed.firstName}</p> : 
+            <ErrorMessage text="Такого человека нет..."/>
+        )
     }
     else {
-        displayed = <h2>Oops... Something went wrong</h2>
+        displayed = <ErrorMessage text="Что-то пошло не так..."/>
     }
 
     return (
         <div>
-            {displayed}
+            <Link to="/">
+                Go back to main...
+            </Link>
+            <div>
+                {displayed}
+            </div>
         </div>
     )
 }

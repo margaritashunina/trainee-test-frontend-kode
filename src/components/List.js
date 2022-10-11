@@ -4,6 +4,9 @@ import { PeopleContext } from "../App"
 import Person from "./Person"
 import Searchbar from "./Searchbar"
 import Tabs from "./Tabs"
+import ErrorMessage from "./ErrorMessage"
+
+import './List.css'
 
 export default function List() {
     const people = useContext(PeopleContext)
@@ -40,17 +43,20 @@ export default function List() {
         ))
     
     return (
-        <div>
+        <main className="list-main">
             <Searchbar 
                 value={listFilter.search}
                 change={handleSearch}
             />
             <Tabs 
                 change={handleDepartments}
+                currentDep={listFilter.department}
             />
-            {people.status === "ok" ? peopleDisplayed :
+            {
+            people.status === "ok" ? peopleDisplayed :
             people.status === "loading"? <h2>Loading people...</h2> :
-            <h2>Something went wrong...</h2>}
-        </div>
+            <ErrorMessage text="Что-то пошло не так..."/>
+            }
+        </main>
     )
 }
