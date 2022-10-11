@@ -6,7 +6,6 @@ export default function Searchbar(props) {
                 value={props.value}
                 onChange={props.change}
             />
-        </div>
-        
+        </div>  
     )
 }

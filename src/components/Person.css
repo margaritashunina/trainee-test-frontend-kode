@@ -1,18 +1,48 @@
 .person--link {
     text-decoration: none;
-    color: black;
+    width: fit-content;
 }
 
 .person {
-    width: 400px;
-
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: 40px;
+
+    gap: 0.75rem;
 }
 
 .person > img {
     border-radius: 50%;
+    width: 4.5rem;
+}
+
+.person--info--names {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.person--info--name {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 125%;
+
+    color: #050510;
+}
+
+.person--info--tag {
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 129%;
+    
+    color: #97979B;
+}
+
+.person--info--dep {
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 125%;
+    
+    color: #55555C;
 }

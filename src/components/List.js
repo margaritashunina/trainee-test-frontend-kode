@@ -44,6 +44,7 @@ export default function List() {
     
     return (
         <main className="list-main">
+            <h2 className="list-main--header">Поиск</h2>
             <Searchbar 
                 value={listFilter.search}
                 change={handleSearch}
