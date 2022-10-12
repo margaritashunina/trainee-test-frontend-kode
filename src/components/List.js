@@ -28,7 +28,7 @@ export default function List() {
             department: event.target.id
         }))
     }
-
+    
     const peopleDisplayed = people.state.data
         .filter(person => (
             listFilter.department === "all" ||

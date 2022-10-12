@@ -18,23 +18,33 @@ export default function App() {
         const options = {
             method: "GET",
             headers: { "Content-Type": "application/json" },
+            validateStatus: function (status) {
+                return status < 500; 
+              }
           };
           axios.get(
-            "https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464/users?__example=all",
+            "https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464/users?__dynamic=true",
             options
           )
             .then((response) => {
-                setPeople(prev => ({
-                    ...prev,
-                    status: "ok",
-                    data: response.data.items
-                }))
+                if (response.status === 200) {
+                    setPeople(prev => ({
+                        ...prev,
+                        status: "ok",
+                        data: response.data.items
+                    }))
+                }
+                else {
+                    setPeople(prev => ({
+                        ...prev,
+                        status: "error"
+                    }))
+                }
             })
             .catch((err) => {
                 setPeople(prev => ({
                     ...prev,
-                    status: "error",
-                    data: err
+                    status: "error"
                 }))
             });
     }, [people.retry])
