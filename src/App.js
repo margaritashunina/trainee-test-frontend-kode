@@ -16,37 +16,33 @@ export default function App() {
 
     useEffect(() => {
         const options = {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-            validateStatus: function (status) {
-                return status < 500; 
-              }
-          };
-          axios.get(
+            headers: { "Content-Type": "application/json" }
+        };
+        axios.get(
             "https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464/users?__dynamic=true",
             options
-          )
-            .then((response) => {
-                if (response.status === 200) {
-                    setPeople(prev => ({
-                        ...prev,
-                        status: "ok",
-                        data: response.data.items
-                    }))
-                }
-                else {
-                    setPeople(prev => ({
-                        ...prev,
-                        status: "error"
-                    }))
-                }
-            })
-            .catch((err) => {
+        )
+        .then((response) => {
+            if (response.status === 200) {
+                setPeople(prev => ({
+                    ...prev,
+                    status: "ok",
+                    data: response.data.items
+                }))
+            }
+            else {
                 setPeople(prev => ({
                     ...prev,
                     status: "error"
                 }))
-            });
+            }
+        })
+        .catch((err) => {
+            setPeople(prev => ({
+                ...prev,
+                status: "error"
+            }))
+        });
     }, [people.retry])
 
     function toggleRetry() {

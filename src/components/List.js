@@ -4,6 +4,7 @@ import { PeopleContext } from "../App"
 import Person from "./Person"
 import Searchbar from "./Searchbar"
 import Tabs from "./Tabs"
+import Sort from "./Sort"
 import ErrorMessage from "./ErrorMessage"
 
 import './List.css'
@@ -12,7 +13,9 @@ export default function List() {
     const people = useContext(PeopleContext)
     const [listFilter, setListFilter] = useState({
         department: "all",
-        search: ""
+        search: "",
+        sortFunctionName: "base",
+        sortFunction: (array) => array
     })
 
     function handleSearch(event) {
@@ -28,8 +31,16 @@ export default function List() {
             department: event.target.id
         }))
     }
-    
-    const peopleDisplayed = people.state.data
+
+    function handleSort(fName, fun) {
+        setListFilter(prevFilter => ({
+            ...prevFilter,
+            sortFunctionName: fName,
+            sortFunction: fun
+        }))
+    }
+
+    let peopleDisplayed = people.state.data
         .filter(person => (
             listFilter.department === "all" ||
             person.department === listFilter.department
@@ -38,6 +49,8 @@ export default function List() {
             person.firstName.toLowerCase().includes(listFilter.search) ||
             person.lastName.toLowerCase().includes(listFilter.search)
         ))
+    
+    peopleDisplayed = listFilter.sortFunction(peopleDisplayed)
         .map(person => (
             <Person key={person.id} {...person}/>
         ))
@@ -52,6 +65,10 @@ export default function List() {
             <Tabs 
                 change={handleDepartments}
                 currentDep={listFilter.department}
+            />
+            <Sort 
+                change={handleSort}
+                currentSort={listFilter.sortFunctionName}
             />
             {
             people.state.status === "ok" ? peopleDisplayed :

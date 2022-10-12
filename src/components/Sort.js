@@ -1,34 +1,53 @@
 export default function Sort(props) {
-    function alphabetSort(a, b) {
-        return a.firstName + a.lastName < b.firstname + b.lastName
+    function alphabetSort(array) {
+        return array.sort((a, b) => {
+            const nameA = a.firstName + a.lastName
+            const nameB = b.firstName + b.lastName
+            return (
+                nameA === nameB ? 0 :
+                nameA < nameB ? -1 : 1
+            )
+        }
+        )
     }
 
-    /*
-        Сортировка по дню рождения 
-        Как сравнить две даты относительно нынешней даты? 
-        Нам интересен только день и месяц в дате рождения 
-        Пусть curDate нынешняя дата
-        Если a - curDate < 0, то a переносим на след.год 
-        Если a - curDate >= 0, то день рождения ещё будет в этом году 
+    function birthdaySort(array) {
+        const now = new Date()
+        return array.sort((a, b) => {
+            const dateA = new Date(a.birthday)
+            dateA.setFullYear(now.getFullYear())
+            const dateB = new Date(b.birthday)
+            dateB.setFullYear(now.getFullYear())
+            
+            if (dateA - now < 0) dateA.setFullYear(now.getFullYear() + 1)
+            if (dateB - now < 0) dateB.setFullYear(now.getFullYear() + 1)
 
-        разница date - date -> int 
-        так что сравнивать нормально выйдет 
-        однако, нужно будет заранее вытащить дату, в которую мы начали сортировку,
-        а не вытаскивать на каждом сравнении 
-        как это лучше будет сделать?
-        const check1 = new Date("1970.09.28")
-        const check2 = new Date()
-        check1.setFullYear(check2.getFullYear() + 1)
-        console.log(check1.toString())
-    */
+           return (
+                dateA === dateB ? 0 : 
+                dateA < dateB ? -1 : 1
+            )
+        })
+    }
 
     return (
         <div>
-            <input type="radio" id="alphabet" name="sort"/>
-            <label for="alphabet">По алфавиту...</label>
+            <input 
+                type="radio" 
+                id="alphabet" 
+                name="sort"
+                checked={props.currentSort === "alphabet"}
+                onChange={(event) => props.change(event.target.id, alphabetSort)}
+            />
+            <label htmlFor="alphabet">По алфавиту...</label>
 
-            <input type="radio" id="birthday" name="sort"/>
-            <label for="birthday">По дню рождения...</label>
+            <input 
+                type="radio" 
+                id="birthday" 
+                name="sort"
+                checked={props.currentSort === "birthday"}
+                onChange={(event) => props.change(event.target.id, birthdaySort)}
+            />
+            <label htmlFor="birthday">По дню рождения...</label>
         </div>
     )
 }
