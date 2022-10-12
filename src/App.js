@@ -26,7 +26,7 @@ export default function App() {
             .then((response) => {
                 setPeople(prev => ({
                     ...prev,
-                    status: "error",
+                    status: "ok",
                     data: response.data.items
                 }))
             })

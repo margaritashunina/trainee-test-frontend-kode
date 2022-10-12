@@ -1,0 +1,31 @@
+.searchbar {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    padding: 0.5rem;
+
+    background: #F7F7F8;
+    border-radius: 0.75rem;
+}
+
+.searchbar > input {
+    width: 100%;
+    border: none;
+    background: none;
+
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 133%;
+
+    color: #C3C3C6;
+
+    caret-color: #6534FF;
+}
+
+.searchbar > input:focus {
+    outline: none;
+    color: #050510;
+}
