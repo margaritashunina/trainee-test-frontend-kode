@@ -4,6 +4,11 @@ import './Person.css'
 import departments from '../departmentNames'
 
 export default function Person(props) {
+    const birthday = new Date(props.birthday)
+    const dateOptions = {
+        month: 'long', 
+        day: 'numeric' 
+    }
     return (
         <Link className="person--link" to={props.id}>
             <div className="person">
@@ -15,6 +20,9 @@ export default function Person(props) {
                     </div>
                     <p className="person--info--dep">{departments[props.department]}</p>
                 </div>
+                {props.showAge && (<p className="profile--age"> 
+                    {birthday.toLocaleDateString('ru-RU', dateOptions)}
+                </p>)}
             </div>
         </Link>
         

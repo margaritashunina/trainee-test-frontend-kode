@@ -52,7 +52,11 @@ export default function List() {
     
     peopleDisplayed = listFilter.sortFunction(peopleDisplayed)
         .map(person => (
-            <Person key={person.id} {...person}/>
+            <Person 
+                showAge={listFilter.sortFunctionName === "birthday"} 
+                key={person.id} 
+                {...person}
+            />
         ))
     
     return (
