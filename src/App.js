@@ -10,7 +10,8 @@ export const PeopleContext = React.createContext()
 export default function App() {
     const [people, setPeople] = useState({
         status: "loading",
-        data: []
+        data: [],
+        retry: false
     })
 
     useEffect(() => {
@@ -23,21 +24,34 @@ export default function App() {
             options
           )
             .then((response) => {
-                setPeople({
-                    status: "ok",
+                setPeople(prev => ({
+                    ...prev,
+                    status: "error",
                     data: response.data.items
-                })
+                }))
             })
             .catch((err) => {
-                setPeople({
+                setPeople(prev => ({
+                    ...prev,
                     status: "error",
                     data: err
-                })
+                }))
             });
-    }, [])
+    }, [people.retry])
+
+    function toggleRetry() {
+        setPeople(prev => ({
+            ...prev,
+            status: "loading",
+            retry: !prev.retry
+        }))
+    }
 
     return (
-        <PeopleContext.Provider value={people}>
+        <PeopleContext.Provider value={{
+            state: people,
+            retry: toggleRetry
+        }}>
             <Routes>
                 <Route path="/" element={<List />}/>
                 <Route path="/:id" element={<Profile />}/>

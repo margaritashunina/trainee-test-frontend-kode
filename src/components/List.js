@@ -29,7 +29,7 @@ export default function List() {
         }))
     }
 
-    const peopleDisplayed = people.data
+    const peopleDisplayed = people.state.data
         .filter(person => (
             listFilter.department === "all" ||
             person.department === listFilter.department
@@ -54,8 +54,8 @@ export default function List() {
                 currentDep={listFilter.department}
             />
             {
-            people.status === "ok" ? peopleDisplayed :
-            people.status === "loading"? <h2>Loading people...</h2> :
+            people.state.status === "ok" ? peopleDisplayed :
+            people.state.status === "loading"? <h2>Loading people...</h2> :
             <ErrorMessage text="Что-то пошло не так..."/>
             }
         </main>

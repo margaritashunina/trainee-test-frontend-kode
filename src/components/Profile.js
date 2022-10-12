@@ -15,15 +15,15 @@ export default function Profile() {
     const people = useContext(PeopleContext)
 
     let displayed
-    if (people.status === "loading") {
+    if (people.state.status === "loading") {
         displayed = <h2>Загрузка</h2>
         //компонент Loading
     }
-    else if (people.status === "error") {
+    else if (people.state.status === "error") {
         displayed = <ErrorMessage text="Что-то пошло не так..."/>
     }
     else {
-        let info = people.data.find(person => person.id === id)
+        let info = people.state.data.find(person => person.id === id)
         if (! info) {
             displayed = <ErrorMessage text="Чела нет..."/>
         }
