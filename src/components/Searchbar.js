@@ -13,7 +13,11 @@ export default function Searchbar(props) {
                 value={props.value}
                 onChange={props.change}
             />
-            <img src={sortIcon} alt="Sort icon"/>
+            <img 
+                src={sortIcon} 
+                alt="Sort icon"
+                onClick={props.toggleSort}
+            />
         </div>  
     )
 }

@@ -1,3 +1,6 @@
+import xIcon from '../img/x-icon.svg'
+import './Sort.css'
+
 export default function Sort(props) {
     function alphabetSort(array) {
         return array.sort((a, b) => {
@@ -30,24 +33,33 @@ export default function Sort(props) {
     }
 
     return (
-        <div>
-            <input 
-                type="radio" 
-                id="alphabet" 
-                name="sort"
-                checked={props.currentSort === "alphabet"}
-                onChange={(event) => props.change(event.target.id, alphabetSort)}
-            />
-            <label htmlFor="alphabet">По алфавиту...</label>
-
-            <input 
-                type="radio" 
-                id="birthday" 
-                name="sort"
-                checked={props.currentSort === "birthday"}
-                onChange={(event) => props.change(event.target.id, birthdaySort)}
-            />
-            <label htmlFor="birthday">По дню рождения...</label>
+        <div className="sort-modal">
+            <div className="sort-modal--header">
+                <h2>Сортировка</h2>
+                <button onClick={props.toggleSort}>
+                    <img src={xIcon} alt="close"/>
+                </button>
+            </div>
+            <div>
+                <input 
+                    type="radio" 
+                    id="alphabet" 
+                    name="sort"
+                    checked={props.currentSort === "alphabet"}
+                    onChange={(event) => props.change(event.target.id, alphabetSort)}
+                />
+                <label htmlFor="alphabet">По алфавиту...</label>
+            </div>
+            <div> 
+                <input 
+                    type="radio" 
+                    id="birthday" 
+                    name="sort"
+                    checked={props.currentSort === "birthday"}
+                    onChange={(event) => props.change(event.target.id, birthdaySort)}
+                />
+                <label htmlFor="birthday">По дню рождения...</label>
+            </div>
         </div>
     )
 }

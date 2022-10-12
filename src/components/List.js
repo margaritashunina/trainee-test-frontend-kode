@@ -15,7 +15,8 @@ export default function List() {
         department: "all",
         search: "",
         sortFunctionName: "base",
-        sortFunction: (array) => array
+        sortFunction: (array) => array,
+        showSort: false
     })
 
     function handleSearch(event) {
@@ -37,6 +38,13 @@ export default function List() {
             ...prevFilter,
             sortFunctionName: fName,
             sortFunction: fun
+        }))
+    }
+
+    function toggleShowSort() {
+        setListFilter(prevFilter => ({
+            ...prevFilter,
+            showSort: !prevFilter.showSort
         }))
     }
 
@@ -65,15 +73,20 @@ export default function List() {
             <Searchbar 
                 value={listFilter.search}
                 change={handleSearch}
+                toggleSort={toggleShowSort}
             />
             <Tabs 
                 change={handleDepartments}
                 currentDep={listFilter.department}
             />
+            {
+            listFilter.showSort &&
             <Sort 
                 change={handleSort}
                 currentSort={listFilter.sortFunctionName}
+                toggleSort={toggleShowSort}
             />
+            }
             {
             people.state.status === "ok" ? peopleDisplayed :
             people.state.status === "loading"? <h2>Loading people...</h2> :
