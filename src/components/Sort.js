@@ -33,32 +33,36 @@ export default function Sort(props) {
     }
 
     return (
-        <div className="sort-modal">
-            <div className="sort-modal--header">
-                <h2>Сортировка</h2>
-                <button onClick={props.toggleSort}>
-                    <img src={xIcon} alt="close"/>
-                </button>
-            </div>
-            <div>
-                <input 
-                    type="radio" 
-                    id="alphabet" 
-                    name="sort"
-                    checked={props.currentSort === "alphabet"}
-                    onChange={(event) => props.change(event.target.id, alphabetSort)}
-                />
-                <label htmlFor="alphabet">По алфавиту...</label>
-            </div>
-            <div> 
-                <input 
-                    type="radio" 
-                    id="birthday" 
-                    name="sort"
-                    checked={props.currentSort === "birthday"}
-                    onChange={(event) => props.change(event.target.id, birthdaySort)}
-                />
-                <label htmlFor="birthday">По дню рождения...</label>
+        <div className="sort-modal--wrapper">
+            <div className="sort-modal">
+                <div className="sort-modal--header">
+                    <h2>Сортировка</h2>
+                    <button onClick={props.toggleSort}>
+                        <img src={xIcon} alt="close"/>
+                    </button>
+                </div>
+                <div className="sort-moadl--input-container">
+                    <input 
+                        className="sort-modal--radio"
+                        type="radio" 
+                        id="alphabet" 
+                        name="sort"
+                        checked={props.currentSort === "alphabet"}
+                        onChange={(event) => props.change(event.target.id, alphabetSort)}
+                    />
+                    <label htmlFor="alphabet" className="sort-modal--label">По алфавиту</label>
+                </div>
+                <div className="sort-moadl--input-container"> 
+                    <input 
+                        className="sort-modal--radio"
+                        type="radio" 
+                        id="birthday" 
+                        name="sort"
+                        checked={props.currentSort === "birthday"}
+                        onChange={(event) => props.change(event.target.id, birthdaySort)}
+                    />
+                    <label htmlFor="birthday" className="sort-modal--label">По дню рождения</label>
+                </div>
             </div>
         </div>
     )

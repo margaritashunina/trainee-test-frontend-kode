@@ -1,3 +1,17 @@
+.sort-modal--wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(5, 5, 16, 0.16);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .sort-modal {
     padding: 1.5rem;
 
@@ -7,7 +21,10 @@
     gap: 2rem;
 
     width: fit-content;
-    min-width: 400px;
+    min-width: 360px;
+
+    background-color: white;
+    border-radius: 1.25rem;
 }
 
 .sort-modal--header {
@@ -15,7 +32,13 @@
     text-align: center;
 
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sort-modal--header > h2 {
+    text-align: center;
+    width: 100%;
 }
 
 .sort-modal--header > button {
@@ -25,4 +48,31 @@
     width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
+}
+
+.sort-moadl--input-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sort-modal--radio {
+    appearance: none;
+
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: 2px solid #6534FF;
+}
+
+.sort-modal--radio:checked {
+    border: 6px solid #6534FF;
+}
+
+.sort-modal--label {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 125%;
+
+    color: #050510;
 }
