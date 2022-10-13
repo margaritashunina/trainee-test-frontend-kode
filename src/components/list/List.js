@@ -1,15 +1,14 @@
 import { useState, useContext } from "react"
-import { PeopleContext } from "../App"
+import { PeopleContext } from "../../App"
 
-import Person from "./Person"
-import Searchbar from "./Searchbar"
-import Tabs from "./Tabs"
-import Sort from "./Sort"
-import ErrorMessage from "./ErrorMessage"
-import Loading from "./Loading"
+import Person from "../person/Person"
+import Searchbar from "../searchbar/Searchbar"
+import Tabs from "../tabs/Tabs"
+import Sort from "../sort/Sort"
+import ErrorMessage from "../errorMessage/ErrorMessage"
+import Loading from "../loading/Loading"
 
 import './List.css'
-
 
 export default function List() {
     const people = useContext(PeopleContext)

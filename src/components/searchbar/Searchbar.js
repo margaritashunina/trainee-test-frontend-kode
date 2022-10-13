@@ -1,5 +1,5 @@
-import searchIcon from '../img/search-icon.svg'
-import sortIcon from '../img/sort-icon.svg'
+import searchIcon from '../../img/search-icon.svg'
+import sortIcon from '../../img/sort-icon.svg'
 
 import './Searchbar.css'
 

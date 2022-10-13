@@ -1,4 +1,4 @@
-import departments from "../departmentNames"
+import departments from "../../departmentNames"
 
 import './Tabs.css'
 

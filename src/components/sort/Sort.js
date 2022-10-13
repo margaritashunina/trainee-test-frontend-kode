@@ -1,4 +1,4 @@
-import xIcon from '../img/x-icon.svg'
+import xIcon from '../../img/x-icon.svg'
 import './Sort.css'
 
 export default function Sort(props) {

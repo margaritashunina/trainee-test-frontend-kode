@@ -1,6 +1,6 @@
-import starIcon from '../img/star.svg'
-import phoneIcon from '../img/phone.svg'
-import goose from '../img/goose.svg'
+import starIcon from '../../img/star.svg'
+import phoneIcon from '../../img/phone.svg'
+import goose from '../../img/goose.svg'
 import './ProfileInfo.css'
 
 export default function ProfileInfo(props) {

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import axios from 'axios'
 
-import List from './components/List'
-import Profile from './components/Profile'
+import List from './components/list/List'
+import Profile from './components/profile/Profile'
 
 export const PeopleContext = React.createContext()
 

@@ -1,7 +1,7 @@
 import { useContext } from "react"
-import { PeopleContext } from "../App"
-import errorImg from '../img/error-emoji.svg'
-import glassIcon from '../img/magnifying-glass-icon.svg'
+import { PeopleContext } from "../../App"
+import errorImg from '../../img/error-emoji.svg'
+import glassIcon from '../../img/magnifying-glass-icon.svg'
 
 import './ErrorMessage.css'
 

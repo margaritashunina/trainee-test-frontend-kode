@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
 import './Person.css'
-import departments from '../departmentNames'
-import goose from '../img/goose.svg'
+import departments from '../../departmentNames'
+import goose from '../../img/goose.svg'
 
 export default function Person(props) {
     const birthday = new Date(props.birthday)

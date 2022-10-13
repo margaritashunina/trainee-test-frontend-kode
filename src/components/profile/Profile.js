@@ -2,14 +2,14 @@ import { useParams } from "react-router-dom"
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 
-import { PeopleContext } from "../App"
+import { PeopleContext } from "../../App"
 
-import ErrorMessage from "./ErrorMessage"
-import ProfileInfo from "./ProfileInfo"
-import Loading from "./Loading"
+import ErrorMessage from "../errorMessage/ErrorMessage"
+import ProfileInfo from "../profileInfo/ProfileInfo"
+import Loading from "../loading/Loading"
 
 import './Profile.css'
-import arrowIcon from "../img/arrow.svg"
+import arrowIcon from "../../img/arrow.svg"
 
 export default function Profile() {
     const { id } = useParams()
