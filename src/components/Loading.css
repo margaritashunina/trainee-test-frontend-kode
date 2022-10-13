@@ -1,0 +1,32 @@
+.element {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.element--round {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #F3F3F6 0%, #FAFAFA 100%);
+}
+
+.element--bigger {
+    width: 9rem;
+    height: 1rem;
+    background: linear-gradient(90deg, #F3F3F6 0%, #FAFAFA 100%);
+    border-radius: 0.5rem;
+}
+
+.element--smaller {
+    width: 4.5rem;
+    height: 1rem;
+    background: linear-gradient(90deg, #F3F3F6 0%, #FAFAFA 100%);
+    border-radius: 0.5rem;
+}
+
+.element--right-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

@@ -6,8 +6,10 @@ import Searchbar from "./Searchbar"
 import Tabs from "./Tabs"
 import Sort from "./Sort"
 import ErrorMessage from "./ErrorMessage"
+import Loading from "./Loading"
 
 import './List.css'
+
 
 export default function List() {
     const people = useContext(PeopleContext)
@@ -67,6 +69,8 @@ export default function List() {
             />
         ))
     
+    const n = 10
+    
     return (
         <main className="list-main">
             <h2 className="list-main--header">Поиск</h2>
@@ -89,7 +93,7 @@ export default function List() {
             }
             {
             people.state.status === "error" ? <ErrorMessage type="someError"/> :
-            people.state.status === "loading"? <h2>Loading people...</h2> :
+            people.state.status === "loading"? (new Array(n).fill(<Loading type="list"/>)) :
             peopleDisplayed.length ? peopleDisplayed : <ErrorMessage type="notFound" />
             }
         </main>

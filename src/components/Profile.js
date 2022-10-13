@@ -6,6 +6,7 @@ import { PeopleContext } from "../App"
 
 import ErrorMessage from "./ErrorMessage"
 import ProfileInfo from "./ProfileInfo"
+import Loading from "./Loading"
 
 import './Profile.css'
 import arrowIcon from "../img/arrow.svg"
@@ -16,8 +17,7 @@ export default function Profile() {
 
     let displayed
     if (people.state.status === "loading") {
-        displayed = <h2>Загрузка</h2>
-        //компонент Loading
+        displayed = <Loading type="profile"/>
     }
     else if (people.state.status === "error") {
         displayed = <ErrorMessage type="someError"/>
