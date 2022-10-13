@@ -27,7 +27,7 @@
     font-size: 1rem;
     line-height: 125%;
 
-    color: #050510;
+    color: var(--darkest-color);
 }
 
 .person--info--tag {
@@ -35,7 +35,7 @@
     font-size: 0.75rem;
     line-height: 129%;
     
-    color: #97979B;
+    color: var(--grey-color);
 }
 
 .person--info--dep {
@@ -43,5 +43,5 @@
     font-size: 0.75rem;
     line-height: 125%;
     
-    color: #55555C;
+    color: var(--dark-grey-color);
 }

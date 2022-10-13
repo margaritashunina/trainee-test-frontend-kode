@@ -3,4 +3,11 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inter';
+
+  --darkest-color: #050510;
+  --dark-grey-color: #55555C;
+  --grey-color: #97979B;
+  --light-grey-color: #C3C3C6;
+  --almost-white-color: #F7F7F8;
+  --main-color: #6534FF;
 }

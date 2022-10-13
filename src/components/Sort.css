@@ -43,7 +43,7 @@
 
 .sort-modal--header > button {
     border: none;
-    background-color: #F7F7F8;
+    background-color: var(--almost-white-color);
     border-radius: 50%;
     width: 1.5rem;
     height: 1.5rem;
@@ -62,11 +62,11 @@
     width: 1.25rem;
     height: 1.25rem;
     border-radius: 50%;
-    border: 2px solid #6534FF;
+    border: 2px solid var(--main-color);
 }
 
 .sort-modal--radio:checked {
-    border: 6px solid #6534FF;
+    border: 6px solid var(--main-color);
 }
 
 .sort-modal--label {
@@ -74,5 +74,5 @@
     font-size: 1rem;
     line-height: 125%;
 
-    color: #050510;
+    color: var(--darkest-color);
 }

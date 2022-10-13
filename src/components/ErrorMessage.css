@@ -16,7 +16,7 @@
     font-size: 1rem;
     line-height: 129%;
 
-    color: #050510;
+    color: var(--darkest-color);
 }
 
 .message > p {
@@ -24,7 +24,7 @@
     font-size: 1rem;
     line-height: 125%;
 
-    color: #97979B;
+    color: var(--grey-color);
 }
 
 .message > button {
@@ -32,7 +32,7 @@
     font-size: 1rem;
     line-height: 125%;
 
-    color: #6534FF;
+    color: var(--main-color);
 
     background: none;
     border: none;

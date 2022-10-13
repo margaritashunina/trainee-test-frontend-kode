@@ -1,5 +1,5 @@
 .link-back {
-    background-color: #F7F7F8;
+    background-color: var(--almost-white-color);
 }
 
 .link-back--img {

@@ -7,7 +7,7 @@
 
     padding: 0.5rem;
 
-    background: #F7F7F8;
+    background: var(--almost-white-color);
     border-radius: 0.75rem;
 }
 
@@ -20,9 +20,9 @@
     font-size: 1rem;
     line-height: 133%;
 
-    color: #C3C3C6;
+    color: var(--light-grey-color);
 
-    caret-color: #6534FF;
+    caret-color: var(--main-color);
 }
 
 .searchbar > input:focus {
