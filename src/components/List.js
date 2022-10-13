@@ -88,9 +88,9 @@ export default function List() {
             />
             }
             {
-            people.state.status === "ok" ? peopleDisplayed :
+            people.state.status === "error" ? <ErrorMessage type="someError"/> :
             people.state.status === "loading"? <h2>Loading people...</h2> :
-            <ErrorMessage text="Что-то пошло не так..."/>
+            peopleDisplayed.length ? peopleDisplayed : <ErrorMessage type="notFound" />
             }
         </main>
     )

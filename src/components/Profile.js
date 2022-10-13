@@ -20,12 +20,12 @@ export default function Profile() {
         //компонент Loading
     }
     else if (people.state.status === "error") {
-        displayed = <ErrorMessage text="Что-то пошло не так..."/>
+        displayed = <ErrorMessage type="someError"/>
     }
     else {
         let info = people.state.data.find(person => person.id === id)
         if (! info) {
-            displayed = <ErrorMessage text="Чела нет..."/>
+            displayed = <ErrorMessage type="notFound"/>
         }
         else {
             displayed = <ProfileInfo {...info}/>
