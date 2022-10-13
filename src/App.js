@@ -18,8 +18,9 @@ export default function App() {
         const options = {
             headers: { "Content-Type": "application/json" }
         };
+        const url = "https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464/users?__dynamic=true"
         axios.get(
-            "https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464/users?__dynamic=true",
+            url,
             options
         )
         .then((response) => {
@@ -38,6 +39,7 @@ export default function App() {
             }
         })
         .catch((err) => {
+            console.log(err)
             setPeople(prev => ({
                 ...prev,
                 status: "error"
