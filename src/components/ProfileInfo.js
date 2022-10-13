@@ -1,5 +1,6 @@
 import starIcon from '../img/star.svg'
 import phoneIcon from '../img/phone.svg'
+import goose from '../img/goose.svg'
 import './ProfileInfo.css'
 
 export default function ProfileInfo(props) {
@@ -15,7 +16,7 @@ export default function ProfileInfo(props) {
     return (
         <div>
             <div className="profile--header">
-                <img src={props.avatarUrl} alt="An employee"/>
+                <img src={props.avatarUrl} alt={goose}/>
                 <div className="profile--header--name">
                     <p>{props.firstName} {props.lastName}</p>
                     <p className="profile--header--tag">{props.userTag}</p>

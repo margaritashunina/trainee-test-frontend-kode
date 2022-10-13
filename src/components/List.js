@@ -56,8 +56,9 @@ export default function List() {
             person.department === listFilter.department
         ))
         .filter(person => (
-            person.firstName.toLowerCase().includes(listFilter.search) ||
-            person.lastName.toLowerCase().includes(listFilter.search)
+            person.firstName.toLowerCase().includes(listFilter.search.toLowerCase()) ||
+            person.lastName.toLowerCase().includes(listFilter.search.toLowerCase()) ||
+            person.userTag.toLowerCase().includes(listFilter.search.toLowerCase())
         ))
     
     peopleDisplayed = listFilter.sortFunction(peopleDisplayed)
@@ -78,6 +79,7 @@ export default function List() {
                 value={listFilter.search}
                 change={handleSearch}
                 toggleSort={toggleShowSort}
+                sortIsChecked={listFilter.sortFunctionName !== "base"}
             />
             <Tabs 
                 change={handleDepartments}

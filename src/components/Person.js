@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 
 import './Person.css'
 import departments from '../departmentNames'
+import goose from '../img/goose.svg'
 
 export default function Person(props) {
     const birthday = new Date(props.birthday)
@@ -12,7 +13,7 @@ export default function Person(props) {
     return (
         <Link className="person--link" to={props.id}>
             <div className="person">
-                <img src={props.avatarUrl} alt="An employee"/>
+                <img src={props.avatarUrl} alt={goose}/>
                 <div className="person--info">
                     <div className="person--info--names">
                         <p className="person--info--name">{props.firstName} {props.lastName}</p>

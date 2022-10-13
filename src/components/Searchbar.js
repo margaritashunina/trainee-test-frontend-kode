@@ -6,7 +6,10 @@ import './Searchbar.css'
 export default function Searchbar(props) {
     return (
         <div className="searchbar">
-            <img src={searchIcon} alt="Search icon"/>
+            <img 
+                src={searchIcon} 
+                alt="Search icon" 
+            />
             <input 
                 type="text"
                 placeholder="Введите имя, тег..."
@@ -17,6 +20,7 @@ export default function Searchbar(props) {
                 src={sortIcon} 
                 alt="Sort icon"
                 onClick={props.toggleSort}
+                className={props.sortIsChecked ? "filled" : ""}
             />
         </div>  
     )

@@ -29,3 +29,7 @@
     outline: none;
     color: #050510;
 }
+
+.filled {
+    filter: invert(33%) sepia(96%) saturate(6591%) hue-rotate(251deg) brightness(104%) contrast(105%);
+}
